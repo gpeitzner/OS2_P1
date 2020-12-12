@@ -151,9 +151,9 @@ static struct file_operations my_fops = {
 
 static int __init stats_init(void)
 {
-	printk(KERN_INFO "“Buenas, att: 3, monitor de memoria\n");
 	struct proc_dir_entry *entry;
 	entry = proc_create("stats", 0777, NULL, &my_fops);
+	printk(KERN_INFO "“Buenas, att: 3, monitor de memoria\n");
 	if (!entry)
 	{
 		return -1;
