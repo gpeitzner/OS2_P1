@@ -1,4 +1,4 @@
-obj += stats.o
+obj-m += stats.o
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD)
 modulesclean:
