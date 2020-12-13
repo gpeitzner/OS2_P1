@@ -22,7 +22,7 @@ struct list_head *list;            /*    Structure needed to iterate through the
 static int escribir_archivo(struct seq_file * archivo,void *v){
     seq_printf(archivo,"{ \"procesos\":[\n");
      for_each_process( task ){            
-        seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state, task->active_mm->total_vm);/*    log parent id/executable name/state    */
+        seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state );/*    log parent id/executable name/state    */
     }    
     seq_printf(archivo,"]}\n");
     return 0;
