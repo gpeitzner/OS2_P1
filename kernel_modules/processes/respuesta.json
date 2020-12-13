@@ -1,0 +1,782 @@
+{
+  "procesos": [
+    { "padre": 1, "user": 0, "pid": 1, "nombre": "systemd", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 169,
+      "nombre": "systemd-journal",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 198,
+      "nombre": "systemd-udevd",
+      "estado": 1
+    },
+    { "padre": 1, "user": 0, "pid": 320, "nombre": "multipathd", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 100,
+      "pid": 419,
+      "nombre": "systemd-network",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 101,
+      "pid": 426,
+      "nombre": "systemd-resolve",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 475,
+      "nombre": "accounts-daemon",
+      "estado": 1
+    },
+    { "padre": 1, "user": 0, "pid": 487, "nombre": "cron", "estado": 1 },
+    { "padre": 1, "user": 112, "pid": 489, "nombre": "chronyd", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 103,
+      "pid": 496,
+      "nombre": "dbus-daemon",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 506,
+      "nombre": "networkd-dispat",
+      "estado": 1
+    },
+    { "padre": 1, "user": 104, "pid": 507, "nombre": "rsyslogd", "estado": 1 },
+    { "padre": 1, "user": 0, "pid": 514, "nombre": "snapd", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 517,
+      "nombre": "systemd-logind",
+      "estado": 1
+    },
+    { "padre": 1, "user": 0, "pid": 519, "nombre": "atd", "estado": 1 },
+    { "padre": 1, "user": 0, "pid": 521, "nombre": "containerd", "estado": 1 },
+    { "padre": 1, "user": 0, "pid": 575, "nombre": "agetty", "estado": 1 },
+    { "padre": 1, "user": 0, "pid": 703, "nombre": "agetty", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 704,
+      "nombre": "google_network_",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 705,
+      "nombre": "google_accounts",
+      "estado": 1
+    },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 706,
+      "nombre": "google_clock_sk",
+      "estado": 1
+    },
+    { "padre": 1, "user": 0, "pid": 711, "nombre": "polkitd", "estado": 1 },
+    {
+      "padre": 1,
+      "user": 0,
+      "pid": 718,
+      "nombre": "unattended-upgr",
+      "estado": 1
+    },
+    { "padre": 1, "user": 0, "pid": 729, "nombre": "sshd", "estado": 1 },
+    { "padre": 1, "user": 0, "pid": 745, "nombre": "dockerd", "estado": 1 },
+    { "padre": 1, "user": 1001, "pid": 994, "nombre": "systemd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 2, "nombre": "kthreadd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 3, "nombre": "rcu_gp", "estado": 1026 },
+    { "padre": 2, "user": 0, "pid": 4, "nombre": "rcu_par_gp", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 6,
+      "nombre": "kworker/0:0H",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 8,
+      "nombre": "kworker/u4:0",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 9,
+      "nombre": "mm_percpu_wq",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 10, "nombre": "ksoftirqd/0", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 11, "nombre": "rcu_sched", "estado": 1026 },
+    { "padre": 2, "user": 0, "pid": 12, "nombre": "migration/0", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 13,
+      "nombre": "idle_inject/0",
+      "estado": 1
+    },
+    { "padre": 2, "user": 0, "pid": 14, "nombre": "cpuhp/0", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 15, "nombre": "cpuhp/1", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 16,
+      "nombre": "idle_inject/1",
+      "estado": 1
+    },
+    { "padre": 2, "user": 0, "pid": 17, "nombre": "migration/1", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 18, "nombre": "ksoftirqd/1", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 19,
+      "nombre": "kworker/1:0",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 20,
+      "nombre": "kworker/1:0H",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 21, "nombre": "kdevtmpfs", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 22, "nombre": "netns", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 23,
+      "nombre": "rcu_tasks_kthre",
+      "estado": 1
+    },
+    { "padre": 2, "user": 0, "pid": 24, "nombre": "kauditd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 25, "nombre": "khungtaskd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 26, "nombre": "oom_reaper", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 27, "nombre": "writeback", "estado": 1026 },
+    { "padre": 2, "user": 0, "pid": 28, "nombre": "kcompactd0", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 29, "nombre": "ksmd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 30, "nombre": "khugepaged", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 76,
+      "nombre": "kintegrityd",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 77, "nombre": "kblockd", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 78,
+      "nombre": "blkcg_punt_bio",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 79,
+      "nombre": "tpm_dev_wq",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 80, "nombre": "ata_sff", "estado": 1026 },
+    { "padre": 2, "user": 0, "pid": 81, "nombre": "md", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 82,
+      "nombre": "edac-poller",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 83,
+      "nombre": "devfreq_wq",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 84, "nombre": "watchdogd", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 88, "nombre": "kswapd0", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 89,
+      "nombre": "ecryptfs-kthrea",
+      "estado": 1
+    },
+    { "padre": 2, "user": 0, "pid": 91, "nombre": "kthrotld", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 92,
+      "nombre": "acpi_thermal_pm",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 93, "nombre": "scsi_eh_0", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 94,
+      "nombre": "scsi_tmf_0",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 95,
+      "nombre": "vfio-irqfd-clea",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 98,
+      "nombre": "ipv6_addrconf",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 107, "nombre": "kstrp", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 110,
+      "nombre": "kworker/u5:0",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 111,
+      "nombre": "kworker/1:1H",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 116,
+      "nombre": "kworker/0:1H",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 127,
+      "nombre": "charger_manager",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 128, "nombre": "jbd2/sda1-8", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 129,
+      "nombre": "ext4-rsv-conver",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 130, "nombre": "hwrng", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 185,
+      "nombre": "kworker/0:3",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 195,
+      "nombre": "kworker/1:3",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 224, "nombre": "cryptd", "estado": 1026 },
+    { "padre": 2, "user": 0, "pid": 316, "nombre": "kaluad", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 317,
+      "nombre": "kmpath_rdacd",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 318, "nombre": "kmpathd", "estado": 1026 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 319,
+      "nombre": "kmpath_handlerd",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 331, "nombre": "loop0", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 334, "nombre": "loop1", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 336, "nombre": "loop2", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 337, "nombre": "loop3", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 339, "nombre": "loop4", "estado": 1 },
+    { "padre": 2, "user": 0, "pid": 341, "nombre": "loop5", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 534,
+      "nombre": "kworker/0:6",
+      "estado": 1026
+    },
+    { "padre": 2, "user": 0, "pid": 805, "nombre": "none", "estado": 1 },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 3095,
+      "nombre": "kworker/u4:1",
+      "estado": 1026
+    },
+    {
+      "padre": 2,
+      "user": 0,
+      "pid": 5510,
+      "nombre": "kworker/0:0",
+      "estado": 1026
+    },
+    { "padre": 3, "user": 0, "pid": 3, "nombre": "rcu_gp", "estado": 1026 },
+    { "padre": 4, "user": 0, "pid": 4, "nombre": "rcu_par_gp", "estado": 1026 },
+    {
+      "padre": 6,
+      "user": 0,
+      "pid": 6,
+      "nombre": "kworker/0:0H",
+      "estado": 1026
+    },
+    {
+      "padre": 8,
+      "user": 0,
+      "pid": 8,
+      "nombre": "kworker/u4:0",
+      "estado": 1026
+    },
+    {
+      "padre": 9,
+      "user": 0,
+      "pid": 9,
+      "nombre": "mm_percpu_wq",
+      "estado": 1026
+    },
+    { "padre": 10, "user": 0, "pid": 10, "nombre": "ksoftirqd/0", "estado": 1 },
+    {
+      "padre": 11,
+      "user": 0,
+      "pid": 11,
+      "nombre": "rcu_sched",
+      "estado": 1026
+    },
+    { "padre": 12, "user": 0, "pid": 12, "nombre": "migration/0", "estado": 1 },
+    {
+      "padre": 13,
+      "user": 0,
+      "pid": 13,
+      "nombre": "idle_inject/0",
+      "estado": 1
+    },
+    { "padre": 14, "user": 0, "pid": 14, "nombre": "cpuhp/0", "estado": 1 },
+    { "padre": 15, "user": 0, "pid": 15, "nombre": "cpuhp/1", "estado": 1 },
+    {
+      "padre": 16,
+      "user": 0,
+      "pid": 16,
+      "nombre": "idle_inject/1",
+      "estado": 1
+    },
+    { "padre": 17, "user": 0, "pid": 17, "nombre": "migration/1", "estado": 1 },
+    { "padre": 18, "user": 0, "pid": 18, "nombre": "ksoftirqd/1", "estado": 1 },
+    {
+      "padre": 19,
+      "user": 0,
+      "pid": 19,
+      "nombre": "kworker/1:0",
+      "estado": 1026
+    },
+    {
+      "padre": 20,
+      "user": 0,
+      "pid": 20,
+      "nombre": "kworker/1:0H",
+      "estado": 1026
+    },
+    { "padre": 21, "user": 0, "pid": 21, "nombre": "kdevtmpfs", "estado": 1 },
+    { "padre": 22, "user": 0, "pid": 22, "nombre": "netns", "estado": 1026 },
+    {
+      "padre": 23,
+      "user": 0,
+      "pid": 23,
+      "nombre": "rcu_tasks_kthre",
+      "estado": 1
+    },
+    { "padre": 24, "user": 0, "pid": 24, "nombre": "kauditd", "estado": 1 },
+    { "padre": 25, "user": 0, "pid": 25, "nombre": "khungtaskd", "estado": 1 },
+    { "padre": 26, "user": 0, "pid": 26, "nombre": "oom_reaper", "estado": 1 },
+    {
+      "padre": 27,
+      "user": 0,
+      "pid": 27,
+      "nombre": "writeback",
+      "estado": 1026
+    },
+    { "padre": 28, "user": 0, "pid": 28, "nombre": "kcompactd0", "estado": 1 },
+    { "padre": 29, "user": 0, "pid": 29, "nombre": "ksmd", "estado": 1 },
+    { "padre": 30, "user": 0, "pid": 30, "nombre": "khugepaged", "estado": 1 },
+    {
+      "padre": 76,
+      "user": 0,
+      "pid": 76,
+      "nombre": "kintegrityd",
+      "estado": 1026
+    },
+    { "padre": 77, "user": 0, "pid": 77, "nombre": "kblockd", "estado": 1026 },
+    {
+      "padre": 78,
+      "user": 0,
+      "pid": 78,
+      "nombre": "blkcg_punt_bio",
+      "estado": 1026
+    },
+    {
+      "padre": 79,
+      "user": 0,
+      "pid": 79,
+      "nombre": "tpm_dev_wq",
+      "estado": 1026
+    },
+    { "padre": 80, "user": 0, "pid": 80, "nombre": "ata_sff", "estado": 1026 },
+    { "padre": 81, "user": 0, "pid": 81, "nombre": "md", "estado": 1026 },
+    {
+      "padre": 82,
+      "user": 0,
+      "pid": 82,
+      "nombre": "edac-poller",
+      "estado": 1026
+    },
+    {
+      "padre": 83,
+      "user": 0,
+      "pid": 83,
+      "nombre": "devfreq_wq",
+      "estado": 1026
+    },
+    { "padre": 84, "user": 0, "pid": 84, "nombre": "watchdogd", "estado": 1 },
+    { "padre": 88, "user": 0, "pid": 88, "nombre": "kswapd0", "estado": 1 },
+    {
+      "padre": 89,
+      "user": 0,
+      "pid": 89,
+      "nombre": "ecryptfs-kthrea",
+      "estado": 1
+    },
+    { "padre": 91, "user": 0, "pid": 91, "nombre": "kthrotld", "estado": 1026 },
+    {
+      "padre": 92,
+      "user": 0,
+      "pid": 92,
+      "nombre": "acpi_thermal_pm",
+      "estado": 1026
+    },
+    { "padre": 93, "user": 0, "pid": 93, "nombre": "scsi_eh_0", "estado": 1 },
+    {
+      "padre": 94,
+      "user": 0,
+      "pid": 94,
+      "nombre": "scsi_tmf_0",
+      "estado": 1026
+    },
+    {
+      "padre": 95,
+      "user": 0,
+      "pid": 95,
+      "nombre": "vfio-irqfd-clea",
+      "estado": 1026
+    },
+    {
+      "padre": 98,
+      "user": 0,
+      "pid": 98,
+      "nombre": "ipv6_addrconf",
+      "estado": 1026
+    },
+    { "padre": 107, "user": 0, "pid": 107, "nombre": "kstrp", "estado": 1026 },
+    {
+      "padre": 110,
+      "user": 0,
+      "pid": 110,
+      "nombre": "kworker/u5:0",
+      "estado": 1026
+    },
+    {
+      "padre": 111,
+      "user": 0,
+      "pid": 111,
+      "nombre": "kworker/1:1H",
+      "estado": 1026
+    },
+    {
+      "padre": 116,
+      "user": 0,
+      "pid": 116,
+      "nombre": "kworker/0:1H",
+      "estado": 1026
+    },
+    {
+      "padre": 127,
+      "user": 0,
+      "pid": 127,
+      "nombre": "charger_manager",
+      "estado": 1026
+    },
+    {
+      "padre": 128,
+      "user": 0,
+      "pid": 128,
+      "nombre": "jbd2/sda1-8",
+      "estado": 1
+    },
+    {
+      "padre": 129,
+      "user": 0,
+      "pid": 129,
+      "nombre": "ext4-rsv-conver",
+      "estado": 1026
+    },
+    { "padre": 130, "user": 0, "pid": 130, "nombre": "hwrng", "estado": 1 },
+    {
+      "padre": 169,
+      "user": 0,
+      "pid": 169,
+      "nombre": "systemd-journal",
+      "estado": 1
+    },
+    {
+      "padre": 185,
+      "user": 0,
+      "pid": 185,
+      "nombre": "kworker/0:3",
+      "estado": 1026
+    },
+    {
+      "padre": 195,
+      "user": 0,
+      "pid": 195,
+      "nombre": "kworker/1:3",
+      "estado": 1026
+    },
+    {
+      "padre": 198,
+      "user": 0,
+      "pid": 198,
+      "nombre": "systemd-udevd",
+      "estado": 1
+    },
+    { "padre": 224, "user": 0, "pid": 224, "nombre": "cryptd", "estado": 1026 },
+    { "padre": 316, "user": 0, "pid": 316, "nombre": "kaluad", "estado": 1026 },
+    {
+      "padre": 317,
+      "user": 0,
+      "pid": 317,
+      "nombre": "kmpath_rdacd",
+      "estado": 1026
+    },
+    {
+      "padre": 318,
+      "user": 0,
+      "pid": 318,
+      "nombre": "kmpathd",
+      "estado": 1026
+    },
+    {
+      "padre": 319,
+      "user": 0,
+      "pid": 319,
+      "nombre": "kmpath_handlerd",
+      "estado": 1026
+    },
+    {
+      "padre": 320,
+      "user": 0,
+      "pid": 320,
+      "nombre": "multipathd",
+      "estado": 1
+    },
+    { "padre": 331, "user": 0, "pid": 331, "nombre": "loop0", "estado": 1 },
+    { "padre": 334, "user": 0, "pid": 334, "nombre": "loop1", "estado": 1 },
+    { "padre": 336, "user": 0, "pid": 336, "nombre": "loop2", "estado": 1 },
+    { "padre": 337, "user": 0, "pid": 337, "nombre": "loop3", "estado": 1 },
+    { "padre": 339, "user": 0, "pid": 339, "nombre": "loop4", "estado": 1 },
+    { "padre": 341, "user": 0, "pid": 341, "nombre": "loop5", "estado": 1 },
+    {
+      "padre": 419,
+      "user": 100,
+      "pid": 419,
+      "nombre": "systemd-network",
+      "estado": 1
+    },
+    {
+      "padre": 426,
+      "user": 101,
+      "pid": 426,
+      "nombre": "systemd-resolve",
+      "estado": 1
+    },
+    {
+      "padre": 475,
+      "user": 0,
+      "pid": 475,
+      "nombre": "accounts-daemon",
+      "estado": 1
+    },
+    { "padre": 487, "user": 0, "pid": 487, "nombre": "cron", "estado": 1 },
+    { "padre": 489, "user": 112, "pid": 489, "nombre": "chronyd", "estado": 1 },
+    { "padre": 489, "user": 112, "pid": 493, "nombre": "chronyd", "estado": 1 },
+    { "padre": 493, "user": 112, "pid": 493, "nombre": "chronyd", "estado": 1 },
+    {
+      "padre": 496,
+      "user": 103,
+      "pid": 496,
+      "nombre": "dbus-daemon",
+      "estado": 1
+    },
+    {
+      "padre": 506,
+      "user": 0,
+      "pid": 506,
+      "nombre": "networkd-dispat",
+      "estado": 1
+    },
+    {
+      "padre": 507,
+      "user": 104,
+      "pid": 507,
+      "nombre": "rsyslogd",
+      "estado": 1
+    },
+    { "padre": 514, "user": 0, "pid": 514, "nombre": "snapd", "estado": 1 },
+    {
+      "padre": 517,
+      "user": 0,
+      "pid": 517,
+      "nombre": "systemd-logind",
+      "estado": 1
+    },
+    { "padre": 519, "user": 0, "pid": 519, "nombre": "atd", "estado": 1 },
+    {
+      "padre": 521,
+      "user": 0,
+      "pid": 521,
+      "nombre": "containerd",
+      "estado": 1
+    },
+    {
+      "padre": 534,
+      "user": 0,
+      "pid": 534,
+      "nombre": "kworker/0:6",
+      "estado": 1026
+    },
+    { "padre": 575, "user": 0, "pid": 575, "nombre": "agetty", "estado": 1 },
+    { "padre": 703, "user": 0, "pid": 703, "nombre": "agetty", "estado": 1 },
+    {
+      "padre": 704,
+      "user": 0,
+      "pid": 704,
+      "nombre": "google_network_",
+      "estado": 1
+    },
+    {
+      "padre": 705,
+      "user": 0,
+      "pid": 705,
+      "nombre": "google_accounts",
+      "estado": 1
+    },
+    {
+      "padre": 706,
+      "user": 0,
+      "pid": 706,
+      "nombre": "google_clock_sk",
+      "estado": 1
+    },
+    { "padre": 711, "user": 0, "pid": 711, "nombre": "polkitd", "estado": 1 },
+    {
+      "padre": 718,
+      "user": 0,
+      "pid": 718,
+      "nombre": "unattended-upgr",
+      "estado": 1
+    },
+    { "padre": 729, "user": 0, "pid": 729, "nombre": "sshd", "estado": 1 },
+    { "padre": 729, "user": 0, "pid": 980, "nombre": "sshd", "estado": 1 },
+    { "padre": 745, "user": 0, "pid": 745, "nombre": "dockerd", "estado": 1 },
+    { "padre": 805, "user": 0, "pid": 805, "nombre": "none", "estado": 1 },
+    { "padre": 980, "user": 0, "pid": 980, "nombre": "sshd", "estado": 1 },
+    { "padre": 980, "user": 1001, "pid": 1095, "nombre": "sshd", "estado": 1 },
+    {
+      "padre": 994,
+      "user": 1001,
+      "pid": 994,
+      "nombre": "systemd",
+      "estado": 1
+    },
+    {
+      "padre": 994,
+      "user": 1001,
+      "pid": 996,
+      "nombre": "(sd-pam)",
+      "estado": 1
+    },
+    {
+      "padre": 996,
+      "user": 1001,
+      "pid": 996,
+      "nombre": "(sd-pam)",
+      "estado": 1
+    },
+    { "padre": 1095, "user": 1001, "pid": 1095, "nombre": "sshd", "estado": 1 },
+    { "padre": 1095, "user": 1001, "pid": 1096, "nombre": "bash", "estado": 1 },
+    {
+      "padre": 1095,
+      "user": 1001,
+      "pid": 1097,
+      "nombre": "sftp-server",
+      "estado": 1
+    },
+    { "padre": 1096, "user": 1001, "pid": 1096, "nombre": "bash", "estado": 1 },
+    { "padre": 1096, "user": 1001, "pid": 5527, "nombre": "cat", "estado": 0 },
+    {
+      "padre": 1097,
+      "user": 1001,
+      "pid": 1097,
+      "nombre": "sftp-server",
+      "estado": 1
+    },
+    {
+      "padre": 3095,
+      "user": 0,
+      "pid": 3095,
+      "nombre": "kworker/u4:1",
+      "estado": 1026
+    },
+    {
+      "padre": 5510,
+      "user": 0,
+      "pid": 5510,
+      "nombre": "kworker/0:0",
+      "estado": 1026
+    },
+    { "padre": 5527, "user": 1001, "pid": 5527, "nombre": "cat", "estado": 0 }
+  ]
+}
