@@ -4,12 +4,140 @@ Diciembre 2020
 
 ## API goolang
 
-![Captura 1](1.png)
+Para dar solucion a la practica y brindar acceso a los datos del sistema, esta api leera los archivos que los modulos del kernel crean en la carpeta proc del sistema, estos archivos se encuentran escritos en formato json para facilitar su transmision por internet.
+
+#### Codigo API Goolang
+
+    package main
+    import (
+    	"encoding/json"
+    	"fmt"
+    	"github.com/gorilla/mux"
+    	"log"
+    	"net/http"
+    	"os/exec"
+    )
+    type MonitorRam struct {
+    	// Valores en MB
+    	RamTotal int
+    	RamConsumida int
+    	PorcentajeConsumida int
+    	RamLibre int
+    }
+    type MonitorCpu struct {
+    	// Valor en MB
+    	CpuTotal int
+    	CpuConsumida int
+    	PorcentajeConsumido int
+    	CpuLibre int
+    }
+    type MonitorProcesos struct {
+    	Total string
+    	EnEjecucio string
+    	Suspendidos string
+    	Detenidos string
+    	Zombies string
+    	Procesos []Proceso
+    }
+    type Proceso struct {
+    	Pid string
+    	Nombre string
+    	Usuario string
+    	Estado string
+    	Ram string
+    	Hijos []Hijo
+    }
+    type Hijo struct {
+    	Pid string
+    	Nombre string
+    }
+    func Procesos(w http.ResponseWriter, req *http.Request) {
+    	var procesos []Proceso
+    	pp1 := Proceso{
+    		Pid:     "pid_1",
+    		Nombre:  "proc",
+    		Usuario: "proc",
+    		Estado:  "proc",
+    		Ram:     "proc",
+    		Hijos: []Hijo{{
+    			Pid:    "pid_hijo_1",
+    			Nombre: "nombre_hijo",
+    		}, {
+    			Pid:    "pid_hijo_2",
+    			Nombre: "nombre_hijo",
+    		}},
+    	}
+    	pp2 := Proceso{
+    		Pid:     "pid_2",
+    		Nombre:  "proc",
+    		Usuario: "proc",
+    		Estado:  "proc",
+    		Ram:     "proc",
+    		Hijos: []Hijo{{
+    			Pid:    "pid_hijo_1",
+    			Nombre: "nombre_hijo",
+    		}, {
+    			Pid:    "pid_hijo_2",
+    			Nombre: "nombre_hijo",
+    		}, {
+    			Pid:    "pid_hijo_3",
+    			Nombre: "nombre_hijo",
+    		}},
+    	}
+    	procesos = append(procesos, pp1,pp2)
+    	monitor := MonitorProcesos{
+    		Total:       "50",
+    		EnEjecucio:  "10",
+    		Suspendidos: "10",
+    		Detenidos:   "10",
+    		Zombies:     "10",
+    		Procesos:    procesos,
+    	}
+    	json.NewEncoder(w).Encode(monitor)
+    }
+    func Ram(w http.ResponseWriter, req *http.Request) {
+    	mr := MonitorRam{
+    		RamTotal:            100,
+    		RamConsumida:        300,
+    		PorcentajeConsumida: 400,
+    		RamLibre:            100,
+    	}
+    	json.NewEncoder(w).Encode(mr)
+    }
+    func Cpu(w http.ResponseWriter, req *http.Request) {
+    	mc := MonitorCpu{
+    		CpuTotal:            0,
+    		CpuConsumida:        0,
+    		PorcentajeConsumido: 0,
+    		CpuLibre:            0,
+    	}
+    	json.NewEncoder(w).Encode(mc)
+    }
+    func Matar(w http.ResponseWriter, req *http.Request) {
+    	pid := mux.Vars(req)["pid"]
+    	fmt.Println("El proceso a eliminar es:", pid)
+    	// Matando proceso seleccionado
+    	err := exec.Command("kill", pid).Run()
+    	if err != nil {
+    		fmt.Println("Error al intentar eliminar el proceso:", pid)
+    	} else {
+    		fmt.Println("Proceso eliminado ;)")
+    	}
+    	fmt.Println("")
+    }
+    func main() {
+    	router := mux.NewRouter()
+    	router.HandleFunc("/procesos", Procesos).Methods("GET")
+    	router.HandleFunc("/ram", Ram).Methods("GET")
+    	router.HandleFunc("/cpu", Cpu).Methods("GET")
+    	router.HandleFunc("/matarproceso/{pid}", Matar).Methods("GET")
+    	log.Fatal(http.ListenAndServe(":80",router))
+    }
 
 ## Monitor de Memoria
 
 El monitor de memoria muestra la informacion de consumo de memoria RAM en procentaje y el consumo de cpu en tiempo real. Transmite esta informacion a travez del API con el siguiente formato.
-![Ejemplo JSON Memoria](images/memoria.png)
+![Ejemplo JSON Memoria](memoria.png)
 
 #### Codigo Monitor de Memoria
 
@@ -168,7 +296,7 @@ El monitor de memoria muestra la informacion de consumo de memoria RAM en procen
 ## Administrador de procesos
 
 El modulo de kernel process genera un archivo ubicado en la direccion /proc/ap_grupo3 que contiene la información relacionada a los procesos del que se estan ejecutando en un momento en el tiempo.
-![Ejemplo respuesta JSON](images/json_process.png)
+![Ejemplo respuesta JSON](json_process.png)
 
 #### Codigo modulo Administrador de procesos
 
@@ -239,4 +367,4 @@ El modulo de kernel process genera un archivo ubicado en la direccion /proc/ap_g
 
 Para poder planificar procesos, tenemos que saber qué es un "proceso". En todo sistema operativo un proceso está representado por una estructura de datos donde se guarda toda la información relevante de éste, el PCB (Process Control Block).
 En Linux, cada proceso del sistema tiene dos estructuras que lo identifican: el PCB que es una estructura del tipo struct task_struct y una estructura del tipo struct thread_info.
-![Tabla de procesos](images/task_struct.png)
+![Tabla de procesos](task_struct.png)
