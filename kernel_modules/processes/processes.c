@@ -31,7 +31,7 @@ static int escribir_archivo(struct seq_file * archivo,void *v){
         stime += task->stime;
         utime += task->utime;
         usage = stime+utime;
-        seq_printf(archivo, "{\"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %ld }\n",task->cred->uid.val, task->pid, task->comm, task->state, usage);/*    log parent id/executable name/state    */
+        seq_printf(archivo, "{\"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %lld }\n",task->cred->uid.val, task->pid, task->comm, task->state, usage);/*    log parent id/executable name/state    */
     }    
     seq_printf(archivo,"]}\n");
     return 0;
