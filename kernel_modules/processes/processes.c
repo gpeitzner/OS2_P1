@@ -22,13 +22,13 @@ static int escribir_archivo(struct seq_file * archivo,void *v){
      for_each_process( task ){            
         if (task->mm){
             seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\":
-            %ld, \"ram\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state, task->mm->total_vm);/*
+            %ld, \"ram\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state, task->mm->total_vm * 4);/*
             log arent id/executable name/state    */
             list_for_each(list, &task->children){
                 tchild = list_entry( list, struct task_struct, sibling );
                 if(tchild->mm){
                         seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"ram\": %ld
-                        },\n",task->pid,tchild->cred->uid.val, tchild->pid, tchild->comm, tchild->state, tchild->mm->total_vm );
+                        },\n",task->pid,tchild->cred->uid.val, tchild->pid, tchild->comm, tchild->state, tchild->mm->total_vm * 4);
                 }else{
                         seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"ram\": 0
                         },\n",task->pid,tchild->cred->uid.val, tchild->pid, tchild->comm, tchild->state );
