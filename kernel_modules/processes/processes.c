@@ -11,20 +11,28 @@
 
 #define BUFSIZE 150
 
-MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Lista de los procesos dentro del sistema");
 MODULE_AUTHOR("Sistemas Operativos 2 - Diciembre 2020 - Grupo 3");
+MODULE_LICENSE("GPL");
 
 struct task_struct *task;//info de un proceso
 struct task_struct *task_child;        /*    Structure needed to iterate through task children    */
 struct list_head *list;            /*    Structure needed to iterate through the list in each task->children struct    */
  
 static int escribir_archivo(struct seq_file * archivo,void *v){
+    u64 utime, utime_before, stime, stime_before, usage;
+    utime, stime, utime_before, stime_before, usage = 0;
     seq_printf(archivo,"{ \"procesos\":[\n");
      for_each_process( task ){            
          seq_printf(archivo,",\n");
          /*    for_each_process() MACRO for iterating through each task in the os located in linux\sched\signal.h    */
-        seq_printf(archivo, "{\"father\": %d , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld }\n",task->pid,task->pid, task->comm, task->state);/*    log parent id/executable name/state    */
+        stime_before += task->prev_stime;
+        utime_before += task->prev_utime;
+        stime += task->stime;
+        utime += task->utime;
+
+        usage = (utime + stime) - (utime_before + stime_before) / 100;
+        seq_printf(archivo, "{\"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %ld }\n",task->cred->uid.val, task->pid, task->comm, task->state, usage);/*    log parent id/executable name/state    */
     }    
     seq_printf(archivo,"]}\n");
     return 0;
