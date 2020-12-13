@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,42 +11,61 @@ export class AppComponent {
 
   constructor(private httpClient: HttpClient) {}
 
-  public chartOptions = {
+  chartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
   };
-  public chartData = [
-    { data: [65, 59, 80, 81, 56, 55, 40, 33, 58, 97], label: 'RAM' },
-    { data: [28, 48, 40, 19, 86, 27, 90, 23, 11, 68], label: 'CPU' },
+  chartData: any = [
+    { data: [], label: 'RAM' },
+    { data: [], label: 'CPU' },
   ];
-  public chartLabels: string[] = [];
+  chartLabels: string[] = [];
+  totalRam: string = '0mb';
+  usedRam: string = '0mb';
+  ramPercentage: string = '0%';
+  cpuPercentage: string = '0%';
 
   ngOnInit() {
+    setInterval(() => {
+      this.getSystemInformationData();
+    }, 1500);
+  }
+
+  getSystemInformationData(): void {
     this.httpClient.get('http://so2-practice1.ddns.net/stats').subscribe(
-      (data) => {
-        console.log(data);
+      (data: any) => {
+        this.totalRam = data.TotalRam + 'mb';
+        this.usedRam = data.UsedRam + 'mb';
+        this.ramPercentage = data.RamPercentage + '%';
+        this.cpuPercentage = data.CpuPercentage + '%';
+        let date: Date = new Date(Date.now());
+        let currentTime: string =
+          date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        if (this.chartLabels.length === 0) {
+          this.chartData[0].data.push(parseInt(data.RamPercentage));
+          this.chartData[1].data.push(parseInt(data.CpuPercentage));
+          this.chartLabels.push(currentTime);
+        } else {
+          if (this.chartLabels.length === 10) {
+            for (let i = 0; i < this.chartLabels.length - 1; i++) {
+              const element = this.chartLabels[i + 1];
+              this.chartData[0].data[i] = this.chartData[0].data[i + 1];
+              this.chartData[1].data[i] = this.chartData[1].data[i + 1];
+              this.chartLabels[i] = element;
+            }
+            this.chartData[0].data[9] = parseInt(data.RamPercentage);
+            this.chartData[1].data[9] = parseInt(data.CpuPercentage);
+            this.chartLabels[9] = currentTime;
+          } else {
+            this.chartData[0].data.push(parseInt(data.RamPercentage));
+            this.chartData[1].data.push(parseInt(data.CpuPercentage));
+            this.chartLabels.push(currentTime);
+          }
+        }
       },
       (error) => {
         console.log(error);
       }
     );
-    setInterval(() => {
-      let date: Date = new Date(Date.now());
-      let currentTime: string =
-        date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-      if (this.chartLabels.length === 0) {
-        this.chartLabels.push(currentTime);
-      } else {
-        if (this.chartLabels.length === 10) {
-          for (let i = 0; i < this.chartLabels.length - 1; i++) {
-            const element = this.chartLabels[i + 1];
-            this.chartLabels[i] = element;
-          }
-          this.chartLabels[9] = currentTime;
-        } else {
-          this.chartLabels.push(currentTime);
-        }
-      }
-    }, 1500);
   }
 }
