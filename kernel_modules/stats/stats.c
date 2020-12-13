@@ -154,7 +154,7 @@ static struct file_operations my_fops = {
 static int __init stats_init(void)
 {
 	struct proc_dir_entry *entry;
-	entry = proc_create("stats", 0777, NULL, &my_fops);
+	entry = proc_create("m_grupo3", 0777, NULL, &my_fops);
 	printk(KERN_INFO "“Buenas, att: 3, monitor de memoria\n");
 	if (!entry)
 	{
@@ -166,7 +166,7 @@ static int __init stats_init(void)
 static void __exit stats_exit(void)
 {
 	printk(KERN_INFO "Bai, att: 3 y este fue el monitor de memoria\n");
-	remove_proc_entry("stats", NULL);
+	remove_proc_entry("m_grupo3", NULL);
 }
 
 module_init(stats_init);
