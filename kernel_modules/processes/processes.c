@@ -20,18 +20,11 @@ struct task_struct *task_child;        /*    Structure needed to iterate through
 struct list_head *list;            /*    Structure needed to iterate through the list in each task->children struct    */
  
 static int escribir_archivo(struct seq_file * archivo,void *v){
-    u64 utime, stime, usage;
-    utime = 0;
-    stime = 0;
-    usage = 0;
     seq_printf(archivo,"{ \"procesos\":[\n");
      for_each_process( task ){            
          seq_printf(archivo,",\n");
          /*    for_each_process() MACRO for iterating through each task in the os located in linux\sched\signal.h    */
-        stime += task->stime;
-        utime += task->utime;
-        usage = stime+utime;
-        seq_printf(archivo, "{\"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %lld }\n",task->cred->uid.val, task->pid, task->comm, task->state, usage);/*    log parent id/executable name/state    */
+        seq_printf(archivo, "{\"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %lld }\n",task->cred->uid.val, task->pid, task->comm, task->state, task->active_mm->total_vm);/*    log parent id/executable name/state    */
     }    
     seq_printf(archivo,"]}\n");
     return 0;
