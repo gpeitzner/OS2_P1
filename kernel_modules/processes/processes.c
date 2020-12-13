@@ -23,11 +23,6 @@ static int escribir_archivo(struct seq_file * archivo,void *v){
     seq_printf(archivo,"{ \"procesos\":[\n");
      for_each_process( task ){            
         seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state, task->active_mm->total_vm);/*    log parent id/executable name/state    */
-        list_for_each(list, &task->children){                        /*    list_for_each MACRO to iterate through task->children    */
-            task_child = list_entry( list, struct task_struct, sibling );    /*    using list_entry to declare all vars in task_child struct    */
-            seq_printf(archivo, "{\"padre\":%d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld, \"usage\": %ld },\n",task->pid, task_child->cred->uid.val
-                task_child->pid, task_child->comm, task_child->state);
-        }
     }    
     seq_printf(archivo,"]}\n");
     return 0;
