@@ -25,7 +25,7 @@ static int escribir_archivo(struct seq_file * archivo,void *v){
         seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld },\n",task->pid, task->cred->uid.val, task->pid, task->comm, task->state );/*    log parent id/executable name/state    */
          list_for_each(list, &task->children){
             tchild = list_entry( list, struct task_struct, sibling );
-            seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld },\n",task->pid,tchild->cred->uid.val, tchild->pid, tchild->comm, tchild->state ):
+            seq_printf(archivo, "{ \"padre\": %d, \"user\": %u , \"pid\": %d , \"nombre\": \"%s\" , \"estado\": %ld },\n",task->pid,tchild->cred->uid.val, tchild->pid, tchild->comm, tchild->state );
             
         }
     }    
