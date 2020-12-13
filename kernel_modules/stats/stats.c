@@ -86,11 +86,13 @@ static int my_proc_show(struct seq_file *m, void *v)
 	u64 sum = 0;
 	u64 sum_softirq = 0;
 	unsigned int per_softirq_sums[NR_SOFTIRQS] = {0};
+	int32_t total_ram = 0;
 	struct timespec64 boottime;
 	//RAM
 	si_meminfo(&info);
 	available = si_mem_available();
 	ram_usage = ((info.totalram - available - info.bufferram) * 100) / (info.totalram);
+	total_ram = ((uint64_t) info.totalram * info.mem_unit)/1024;
 	//CPU
 	user = nice = system = idle = iowait =
 		irq = softirq = steal = 0;
@@ -127,7 +129,7 @@ static int my_proc_show(struct seq_file *m, void *v)
 	t_usage = (t_total - t_idle) - t_usage0;
 	t_usage0 = t_total - t_idle;
 	cpu_usage = ((t_usage * 100) / t_total) / 10000000000;
-	seq_printf(m, "%ld;%lld", ram_usage, cpu_usage);
+	seq_printf(m, "{\n\"TotalRam\":\"%d\",\n\"UsedRam\":\"%ld\",\n\"RamPercentage\":\"%ld\",\n\"CpuPercentage\":\"%lld\"\n}\n", total_ram, (available - info.bufferram), ram_usage, cpu_usage);
 	return 0;
 }
 
