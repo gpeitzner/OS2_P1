@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'web';
+
+  constructor(private httpClient: HttpClient) {}
 
   public chartOptions = {
     scaleShowVerticalLines: false,
@@ -19,6 +22,14 @@ export class AppComponent {
   public chartLabels: string[] = [];
 
   ngOnInit() {
+    this.httpClient.get('http://so2-practice1.ddns.net/stats').subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     setInterval(() => {
       let date: Date = new Date(Date.now());
       let currentTime: string =

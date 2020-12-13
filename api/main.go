@@ -27,6 +27,7 @@ type Hijo struct {
 }
 
 func Procesos(w http.ResponseWriter, req *http.Request) {
+	enableCors(&w)
 
 	type proceso struct {
 		Padre int64 `json:"padre"`
@@ -62,7 +63,8 @@ func Procesos(w http.ResponseWriter, req *http.Request) {
 }
 
 func Stats(w http.ResponseWriter, req *http.Request) {
-
+	enableCors(&w)
+	
 	type stats struct {
 		TotalRam string
 		UsedRam string
@@ -89,6 +91,7 @@ func Stats(w http.ResponseWriter, req *http.Request) {
 }
 
 func Matar(w http.ResponseWriter, req *http.Request) {
+	enableCors(&w)
 
 	pid := mux.Vars(req)["pid"]
 
@@ -107,6 +110,9 @@ func Matar(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("")
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
 
 func main() {
 
