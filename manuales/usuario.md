@@ -26,7 +26,7 @@ Una vez dentro del dashboard de la aplicación, vera la grafica que muestra en t
 
 ### Administracion de procesos
 
-![Ejemplo JSON Memoria](images/procesos.png)
 La aplicacion muestra en el modulo de procesos el total de procesos en ejecucion, el total de procesos en estado "sleeping" el total de procesos en ejecucion, el total de procesos "idle" y tambien el total de procesos Zombie en el sistema.
-
 Por ultimo una lista de cada uno de estos procesos con una accion que nos permitira terminar con la ejecucion de un proceso especifico, la accion lleva por nombre "STOP".
+
+![Ejemplo JSON Memoria](images/procesos.png)
