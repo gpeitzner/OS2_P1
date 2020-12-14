@@ -4,10 +4,37 @@
   </div>
 </nav>
 <div class="container">
-  <div class="row my-4 ml-1">
+  <div class="row my-4 ml-1" *ngIf="!access">
+    <h4>Login</h4>
+  </div>
+  <div class="row" *ngIf="!access">
+    <div class="col">
+      <h6>User</h6>
+      <input type="text" class="w-100" [(ngModel)]="user" />
+    </div>
+    <div class="col">
+      <h6>Password</h6>
+      <input type="password" class="w-100" [(ngModel)]="password" />
+    </div>
+    <div class="col">
+      <button
+        type="button"
+        class="btn btn-outline-dark w-100 h-100"
+        (click)="login()"
+      >
+        Entrar
+      </button>
+    </div>
+  </div>
+  <div class="row my-4" *ngIf="error">
+    <div class="alert alert-danger w-100" role="alert">
+      {{ error }}
+    </div>
+  </div>
+  <div class="row my-4 ml-1" *ngIf="access">
     <h4>System Information</h4>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="access">
     <div class="col">
       <div class="table-responsive">
         <table class="table table-dark table-borderless">
@@ -47,10 +74,10 @@
       </div>
     </div>
   </div>
-  <div class="row my-4 ml-1">
+  <div class="row my-4 ml-1" *ngIf="access">
     <h4>Processes</h4>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="access">
     <div class="table-responsive">
       <table class="table table-light table-borderless">
         <tbody>

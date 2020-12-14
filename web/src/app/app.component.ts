@@ -39,13 +39,10 @@ export class AppComponent {
   stopped: number = 0;
   zombie: number = 0;
   idle: number = 0;
-
-  ngOnInit() {
-    setInterval(() => {
-      this.getSystemInformationData();
-      this.getProcessesData();
-    }, 1500);
-  }
+  user: string = '';
+  password: string = '';
+  error: string = '';
+  access: boolean = false;
 
   getSystemInformationData(): void {
     this.httpClient.get('http://so2-practice1.ddns.net/stats').subscribe(
@@ -140,5 +137,19 @@ export class AppComponent {
           console.log(error);
         }
       );
+  }
+
+  login(): void {
+    console.log(this.user, this.password);
+    if (this.user === 'admin' && this.password == 'admin') {
+      this.error = '';
+      setInterval(() => {
+        this.getSystemInformationData();
+        this.getProcessesData();
+      }, 1500);
+      this.access = true;
+    } else {
+      this.error = 'Bad credentials.';
+    }
   }
 }
