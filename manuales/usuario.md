@@ -15,13 +15,13 @@ Al acceder obtendra acceso a las metricas del sistema en tiempo real, pero para 
     admin:admin
 
 Para usuario y contraseña respectivamente como se muestra a continuacion.
-![Ejemplo JSON Memoria](images/credenciales2.png)
-![Ejemplo JSON Memoria](images/credenciales1.png)
+![Ejemplo JSON Memoria](images/credenciales2.JPG)
+![Ejemplo JSON Memoria](images/credenciales1.JPG)
 Cuando las credenciales son incorrectas se notificara el error.
 
 ### Aplicacion Web
 
-![Aplicacion web](images/dashboard.png)
+![Aplicacion web](images/dashboard.JPG)
 Una vez dentro del dashboard de la aplicación, vera la grafica que muestra en tiempo real el uso del sistema, el total de la ram disponible, el total de la ram utilizada en mb asi como en porcentaje, tambien el total de cpu utilizado en porcentaje.
 
 ### Administracion de procesos
