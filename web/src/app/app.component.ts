@@ -47,6 +47,12 @@ export class AppComponent {
   getSystemInformationData(): void {
     this.httpClient.get('http://so2-practice1.ddns.net/stats').subscribe(
       (data: any) => {
+        if (data.RamPercentage > 100) {
+          data.RamPercentage = 100;
+        }
+        if (data.CpuPercentage > 100) {
+          data.CpuPercentage = 100;
+        }
         this.totalRam = data.TotalRam + 'mb';
         this.usedRam = data.UsedRam + 'mb';
         this.ramPercentage = data.RamPercentage + '%';
