@@ -124,11 +124,21 @@ export class AppComponent {
               return process;
           }
         });
-        console.log(this.processes);
       },
       (error) => {
         console.log(error);
       }
     );
+  }
+
+  killProcess(process: Process): void {
+    this.httpClient
+      .get('http://so2-practice1.ddns.net/matarproceso/' + process.pid)
+      .subscribe(
+        (data) => {},
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

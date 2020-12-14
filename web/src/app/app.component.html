@@ -90,7 +90,7 @@
         <tbody>
           <tr *ngFor="let process of processes">
             <th scope="row">{{ process.pid }}</th>
-            <th>{{ process.padre }}</th>
+            <td>{{ process.padre }}</td>
             <td>{{ process.nombre }}</td>
             <td>{{ process.estado }}</td>
             <td>
@@ -102,7 +102,15 @@
                   : process.user
               }}
             </td>
-            <td><button type="button" class="btn btn-danger">Stop</button></td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="killProcess(process)"
+              >
+                Stop
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
