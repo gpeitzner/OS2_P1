@@ -56,25 +56,21 @@
         <tbody>
           <tr>
             <th>Total</th>
-            <td>269</td>
+            <td>{{ this.processes.length }}</td>
             <th>Running</th>
-            <td>3</td>
+            <td>{{ running }}</td>
           </tr>
           <tr>
             <th>Sleeping</th>
-            <td>206</td>
+            <td>{{ sleeping }}</td>
             <th>Stopped</th>
-            <td>6</td>
+            <td>{{ stopped }}</td>
           </tr>
           <tr>
             <th>Idle</th>
-            <td>59</td>
-            <th>Disk Sleep</th>
-            <td>6</td>
-          </tr>
-          <tr>
+            <td>{{ idle }}</td>
             <th>Zombie</th>
-            <td>0</td>
+            <td>{{ zombie }}</td>
           </tr>
         </tbody>
       </table>
@@ -84,6 +80,7 @@
         <thead>
           <tr>
             <th scope="col">PID</th>
+            <th scope="col">FPID</th>
             <th scope="col">Name</th>
             <th scope="col">State</th>
             <th scope="col">User</th>
@@ -91,25 +88,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>ps aux</td>
-            <td>I(idle)</td>
-            <td>ubuntu</td>
-            <td><button type="button" class="btn btn-danger">Stop</button></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>ps aux | grep "yes"</td>
-            <td>I(idle)</td>
-            <td>ubuntu</td>
-            <td><button type="button" class="btn btn-danger">Stop</button></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>free -m</td>
-            <td>S(Sleeping)</td>
-            <td>root</td>
+          <tr *ngFor="let process of processes">
+            <th scope="row">{{ process.pid }}</th>
+            <th>{{ process.padre }}</th>
+            <td>{{ process.nombre }}</td>
+            <td>{{ process.estado }}</td>
+            <td>
+              {{
+                process.user === 1000
+                  ? "ubuntu"
+                  : process.user === 0
+                  ? "root"
+                  : process.user
+              }}
+            </td>
             <td><button type="button" class="btn btn-danger">Stop</button></td>
           </tr>
         </tbody>

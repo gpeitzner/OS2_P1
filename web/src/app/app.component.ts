@@ -1,6 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
+export interface Process {
+  padre: number;
+  user: number;
+  pid: number;
+  nombre: string;
+  estado: string;
+  usage: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,10 +33,17 @@ export class AppComponent {
   usedRam: string = '0mb';
   ramPercentage: string = '0%';
   cpuPercentage: string = '0%';
+  processes: Process[] = [];
+  running: number = 0;
+  sleeping: number = 0;
+  stopped: number = 0;
+  zombie: number = 0;
+  idle: number = 0;
 
   ngOnInit() {
     setInterval(() => {
       this.getSystemInformationData();
+      this.getProcessesData();
     }, 1500);
   }
 
@@ -62,6 +78,53 @@ export class AppComponent {
             this.chartLabels.push(currentTime);
           }
         }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getProcessesData(): void {
+    this.httpClient.get('http://so2-practice1.ddns.net/procesos').subscribe(
+      (data: any) => {
+        this.processes = data.procesos;
+        this.processes.reverse();
+        this.running = 0;
+        this.sleeping = 0;
+        this.zombie = 0;
+        this.stopped = 0;
+        this.idle = 0;
+        this.processes.map((process: Process) => {
+          switch (process.estado.toString()) {
+            case '0':
+              this.running += 1;
+              process.estado = 'Running';
+              return process;
+            case '1':
+            case '2':
+              this.sleeping += 1;
+              process.estado = 'Sleeping';
+              return process;
+            case '4':
+            case '128':
+              this.zombie += 1;
+              process.estado = 'Zombie';
+              return process;
+            case '8':
+            case '260':
+              this.stopped += 1;
+              process.estado = 'Stopped';
+              return process;
+            case '1026':
+              this.idle += 1;
+              process.estado = 'Idle';
+              return process;
+            default:
+              return process;
+          }
+        });
+        console.log(this.processes);
       },
       (error) => {
         console.log(error);
