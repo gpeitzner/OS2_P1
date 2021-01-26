@@ -1,4 +1,4 @@
-# SO2_P1
+# OS2_P1
 
 ## Deployment
 
